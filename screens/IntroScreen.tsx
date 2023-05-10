@@ -5,8 +5,6 @@ import { Animated, Image, Platform, SafeAreaView, StyleSheet,TouchableOpacity, V
 import Swiper from "react-native-swiper";
 import Button from "../components/Button";
 import NavigationRoutes from "../navigation/constants/NavigationRoutes";
-import {
-  LOGINTEXT, APPTITLE,TITLEHEADER,RECORDSOUNDS,SEARCHSONGS,SHARESOUNDS,GETSTARTED} from "../strings/en";
 import { useTheme } from "../theme";
 import { fontSize } from "../theme/fontSize";
 import TextView from "../components/TextView";
@@ -16,10 +14,12 @@ import Loader from "../components/Loader";
 import fontFamilies from '../theme/fontfamilies'
 import { Audio, Video } from 'expo-av';
 import {Text} from 'react-native'
+import { useTranslation } from "react-i18next";
 
 export default function IntroScreen(): React.ReactElement {
  void SplashScreen.hideAsync();
   const { colors, isDark } = useTheme();
+  const {t}=useTranslation();
   const navigation = useNavigation();
   const [isPlaying, setIsPlaying] = React.useState(true);
   const videoRef = React.useRef();
@@ -34,7 +34,7 @@ export default function IntroScreen(): React.ReactElement {
     }, 3000); // Change the delay time as per your requirement
     return () => clearTimeout(timer);
   }, [swiperIndex]);
-  const data = [SHARESOUNDS, SEARCHSONGS, RECORDSOUNDS];
+  const data = [t("SHARESOUNDS"), t("SEARCHSONGS"), t("RECORDSOUNDS")];
   const onPressNextButton = async () => {
     navigation.navigate(NavigationRoutes.CreateUserName as never);
   };
@@ -91,8 +91,8 @@ export default function IntroScreen(): React.ReactElement {
             )}
           </View>
           <View style={styles.titleContainer}>
-            <TextView text={TITLEHEADER} style={styles.titleHeaderStyle} />
-            <TextView text={APPTITLE} style={styles.titleStyle} />
+            <TextView text={t("TITLEHEADER")} style={styles.titleHeaderStyle} />
+            <TextView text={t("APPTITLE")} style={styles.titleStyle} />
           </View>
           <Video
   source={require("../assets/appMovie.mov")}
@@ -127,12 +127,12 @@ export default function IntroScreen(): React.ReactElement {
       </FadeInView>
       <View>
         <Button
-          title={GETSTARTED}
+          title={t("GETSTARTED")}
           onPress={onPressNextButton}
           style={styles.button}
         />
         <TouchableOpacity  onPress={onPressLogin}>
-          <TextView text={LOGINTEXT} style={styles.loginText} />
+          <TextView text={t("LOGINTEXT")} style={styles.loginText} />
         </TouchableOpacity>
       </View>
     </SafeAreaView>

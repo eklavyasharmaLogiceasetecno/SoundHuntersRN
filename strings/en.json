@@ -13,7 +13,7 @@
   "RANDOMTEXTCLICK" :"",
   "CHOOSEAUSERNAME" :"CHOOSE A USERNAME",
   "NEEDAUSERNAME" : "You need a username to use the application",
-  "USERNAMEDESCRIPTION" : "Denken Sie aber daran, dass Ihr Benutzername öffentlich sichtbar ist, wenn Sie einen Beitrag teilen. Alle anderen Nutzer sehen ihn.Weitere Informationen bei Soundhunter Hinweis zum Datenschutz",
+  "USERNAMEDESCRIPTION" : "But remember that when you share a post, your username is publicly visible. All other users see it.More information at Soundhunter Note on data protection",
   "CHOOSELANGUAGE" :"Choose a language to continue",
   "PASSWORDSUBHEADING": "You need a password for registration",
   "INTRO" : "Open up App.tsx to start on app!",
@@ -90,5 +90,14 @@
   "HELPSCREEN":"How do I search for and discover new music in the app?",
   "HELPSCREEN2":"How do I download music for offline listening?",
   "HELPSCREEN3":"How do I control playback and adjust volume?",
-  "HELPSCREEN4":"How do I view my listening history or recently played songs?"
+  "HELPSCREEN4":"How do I view my listening history or recently played songs?",
+  "AUDIONAME":"Enter the name of Audio",
+  "ENTERTAGS":"Enter the Tags",
+  "ADDSOUNDDESCRIPTION":"Add a description about the sound",
+  "HOME":"Home",
+  "TABSEARCH":"Search",
+  "RECORD":"Record",
+  "Library":"Library",
+  "PROFILE":"Profile"
+
 }}

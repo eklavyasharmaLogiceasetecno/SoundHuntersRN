@@ -11,14 +11,6 @@ import * as SplashScreen from "expo-splash-screen";
 import { useTheme } from "../theme";
 import InputBox from "../components/InputBox";
 import Button from "../components/Button";
-import {
-  CHOOSEAUSERNAME,
-  EMAILHINT,
-  NEEDAUSERNAME,
-  NEXT,
-  USERNAMEDESCRIPTION,
-  USERNAMEHINT,
-} from "../strings/en";
 import { useNavigation } from "@react-navigation/native";
 import NavigationRoutes from "../navigation/constants/NavigationRoutes";
 import { useUser } from "../hooks/useUser";
@@ -30,10 +22,12 @@ import HeadingProps from "../components/Header";
 import Header from "../components/Header";
 import BackButton from "../assets/backButton.svg";
 import BackButtonLight from "../assets/backButtonLight.svg";
+import { useTranslation } from "react-i18next";
 
 export default function CreateUserName(): React.ReactElement {
   void SplashScreen.hideAsync();
   const { colors, isDark } = useTheme();
+  const {t}=useTranslation()
   const navigation = useNavigation();
   const [username, setUserName] = useState("");
   const [emailaddress, setEmailAddress] = useState("");
@@ -108,7 +102,7 @@ export default function CreateUserName(): React.ReactElement {
             )}
           </TouchableOpacity>
           <TextView
-            text={"Create Account"}
+            text={t("Create Account")}
             style={styles.upperViewText}
             color={colors.primarytextcolor}
           />
@@ -138,18 +132,18 @@ export default function CreateUserName(): React.ReactElement {
         </View>
       </View>
       <View style={styles.userHeadingView}></View>
-      <Header title={CHOOSEAUSERNAME} discription={NEEDAUSERNAME} />
+      <Header title={t("CHOOSEAUSERNAME")} discription={t("NEEDAUSERNAME")} />
       <View style={styles.descriptionview}></View>
 
       <InputBox
-        hint={USERNAMEHINT}
+        hint={t("USERNAMEHINT")}
         style={styles.input}
         handleTextChange={handleUserName}
         returnType={"done"}
       />
 
       <InputBox
-        hint={EMAILHINT}
+        hint={t("EMAILHINT")}
         style={styles.emailinput}
         handleTextChange={handleEmail}
         returnType={"done"}
@@ -159,11 +153,11 @@ export default function CreateUserName(): React.ReactElement {
         <Text style={styles.errorStyle}>{userNameError}</Text>
       </View>
       <View>
-        <TextView text={USERNAMEDESCRIPTION} style={styles.descriptionstyle} />
+        <TextView text={t("USERNAMEDESCRIPTION")} style={styles.descriptionstyle} />
       </View>
       <View style={styles.buttonView}>
         <Button
-          title={NEXT}
+          title={t("NEXT")}
           style={styles.button}
           onPress={onPressNextButton}
         />
