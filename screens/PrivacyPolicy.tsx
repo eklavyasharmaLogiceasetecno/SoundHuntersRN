@@ -17,61 +17,44 @@ import { useTheme } from "../theme";
 import ArrowIconDark from "../assets/arrowIconDark.svg";
 import { useNavigation } from "@react-navigation/native";
 import NavigationRoutes from "../navigation/constants/NavigationRoutes";
+import { useTranslation } from "react-i18next";
 
-const data = [
-  {
-    id: "1",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Est cursus feugiat diam bibendum nam. In lectus morbi fringilla at aliquam scelerisque ut in. Consectetur urna, maecenas cursus id id habitant. Luctus aliquet sit tortor pretium elementum.",
-  },
-  {
-    id: "2",
-    text: "Montes, integer elementum nisl, curabitur nec a. Cursus semper quis tristique consectetur quis a ornare gravida nisi. Ornare arcu tellus, rhoncus mi risus, duis amet. Enim suspendisse adipiscing lobortis proin mattis dictumst luctus sem facilisi. Nisl, quis pharetra est cursus.",
-  },
-  {
-    id: "3",
-    text: "Sagittis eget sit ultricies diam posuere mauris eget. Maecenas massa turpis in sem facilisi integer accumsan venenatis massa. Sapien eget eleifend nunc tellus turpis. Sed a diam cursus diam ac turpis sed eu sed. Odio adipiscing malesuada tellus leo sit. Bibendum phasellus feugiat quam dis. In eu lorem ullamcorper platea vel fringilla. Est vitae mattis enim egestas interdum egestas mi penatibus orci. Libero mattis quam viverra sed lectus risus.",
-  },
-  {
-    id: "4",
-    text: "Rhoncus risus sit neque, velit, arcu. Mauris ipsum, sed ac, mattis donec tristique vel massa pellentesque. Ultrices non tellus elit facilisis lobortis. In purus adipiscing et hendrerit consequat aliquam facilisis nisl nibh. Nullam enim, quam varius nec malesuada. Sed congue faucibus eu justo, et ut sit ac. Neque elit diam nisi quam et. In congue at maecenas risus neque blandit. Maecenas ullamcorper nisi,",
-  },
-  {
-    id: "5",
-    text: "Mauris ipsum, sed ac, mattis donec tristique vel massa pellentesque. Ultrices non tellus elit facilisis lobortis. In purus adipiscing et hendrerit consequat aliquam facilisis nisl nibh ",
-  },
-  {
-    id: "6",
-    text: "Mauris ipsum, sed ac, mattis donec tristique vel massa pellentesque. Ultrices non tellus elit facilisis lobortis. In purus adipiscing et hendrerit consequat aliquam facilisis nisl nibh ",
-  },
-  {
-    id: "7",
-    text: "Mauris ipsum, sed ac, mattis donec tristique vel massa pellentesque. Ultrices non tellus elit facilisis lobortis. In purus adipiscing et hendrerit consequat aliquam facilisis nisl nibh ",
-  },
-  {
-    id: "8",
-    text: "Mauris ipsum, sed ac, mattis donec tristique vel massa pellentesque. Ultrices non tellus elit facilisis lobortis. In purus adipiscing et hendrerit consequat aliquam facilisis nisl nibh ",
-  },
-  {
-    id: "9",
-    text: "Mauris ipsum, sed ac, mattis donec tristique vel massa pellentesque. Ultrices non tellus elit facilisis lobortis. In purus adipiscing et hendrerit consequat aliquam facilisis nisl nibh ",
-  },
-  {
-    id: "10",
-    text: "Mauris ipsum, sed ac, mattis donec tristique vel massa pellentesque. Ultrices non tellus elit facilisis lobortis. In purus adipiscing et hendrerit consequat aliquam facilisis nisl nibh ",
-  },
-  {
-    id: "11",
-    text: "Mauris ipsum, sed ac, mattis donec tristique vel massa pellentesque. Ultrices non tellus elit facilisis lobortis. In purus adipiscing et hendrerit consequat aliquam facilisis nisl nibh ",
-  },
-  {
-    id: "12",
-    text: "Mauris ipsum, sed ac, mattis donec tristique vel massa pellentesque. Ultrices non tellus elit facilisis lobortis. In purus adipiscing et hendrerit consequat aliquam facilisis nisl nibh ",
-  },
-];
+
 
 function PrivacyPolicyScreen() {
   const { colors, isDark } = useTheme();
   const navigation = useNavigation();
+  const {t} = useTranslation()
+      const data=[
+        {
+          id:'1',
+          text:t("PRIVACY")
+        },
+        {
+          id:'2',
+          text:t("PRIVACYID2")
+        },
+        {
+          id:'3',
+          text:t("PRIVACYID3")
+        },
+        {
+          id:'4',
+          text:t("PRIVACYID4")
+        },
+        {
+          id:'5',
+          text:t("PRIVACYID5")
+        },
+        {
+          id:'6',
+          text:t("PRIVACYID6")
+        },
+        {
+          id:'7',
+          text:t("PRIVACYID7")
+        },
+      ]
 
   const onPressBackButton = async () => {
     navigation.navigate(NavigationRoutes.Settings as never);
@@ -83,7 +66,7 @@ function PrivacyPolicyScreen() {
         <TouchableOpacity onPress={onPressBackButton}>
           {isDark !== true ? <ArrowIcon /> : <ArrowIconDark />}
         </TouchableOpacity>
-        <TextView text={PRIVACYPOLICY} style={styles.heading} />
+        <TextView text={t("PRIVACYPOLICY")} style={styles.heading} />
       </View>
       <View style={{ backgroundColor: colors.cardComponentColor }}>
         <ScrollView showsVerticalScrollIndicator={false}>
@@ -113,17 +96,19 @@ const styles = StyleSheet.create({
     padding: getWidth(20),
   },
   arrowIconStyle: {
-    height:Platform.OS==="ios"?"10%":"12%",
-    marginTop:Platform.OS==="ios"?0:getHeight(20),
+    // height:Platform.OS==="ios"?"10%":"12%",
+    marginTop:Platform.OS==="ios"?0:getHeight(25),
     justifyContent:'flex-end',
     padding:getHeight(10),
     paddingHorizontal:getWidth(10),
+    paddingTop:Platform.OS==="ios"?0:getHeight(20)
   },
   heading: {
     fontSize: fontSize.maximum,
     fontFamily: fontFamilies.moderat,
     fontWeight: "700",
-    paddingTop: getHeight(10),
+    paddingBottom: getHeight(10),
+    paddingTop:getHeight(10)
   },
   discription: {
     fontFamily: fontFamilies.moderatLight,
