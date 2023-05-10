@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "806950335966",
+    "project_id": "soundhunters-5322e",
+    "storage_bucket": "soundhunters-5322e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:806950335966:android:5ef1ee7560bc9cd5fd194f",
+        "android_client_info": {
+          "package_name": "com.soundhunters.soundhunters"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "806950335966-8hm7qgn77983dfdfof3upi9jc6ju6mid.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDetwIwcfC2ZIBbxIzje71QEHSRL-NDG3Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "806950335966-8hm7qgn77983dfdfof3upi9jc6ju6mid.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
