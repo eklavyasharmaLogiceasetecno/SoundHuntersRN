@@ -33,6 +33,7 @@ import RecordSound from "../assets/recordSound.svg";
 import BackButton from "../assets/backButton.svg";
 import NavigationRoutes from "../navigation/constants/NavigationRoutes";
 import { useSafeAreaFrame } from "react-native-safe-area-context";
+import { useTranslation } from "react-i18next";
 
 function MusicPlayer(item: any): React.ReactElement {
   const { colors } = useTheme();
@@ -48,6 +49,7 @@ function MusicPlayer(item: any): React.ReactElement {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isAlreadySavedAlbum, setIsAlreadySavedAlbum] = useState(false);
   const [refreshAlbum, setRefreshAlbum] = useState(false)
+  const {t}=useTranslation()
 
  
   useFocusEffect(
@@ -143,7 +145,7 @@ function MusicPlayer(item: any): React.ReactElement {
   const onHandleSaveAudio = async () => {
     if(isAlreadySavedAlbum)
     {
-      toastMessage("Album is already saved !");
+      toastMessage(t("MUSICPLAYERTOAST1"));
       
     }
     else{
@@ -152,7 +154,7 @@ function MusicPlayer(item: any): React.ReactElement {
       albumDetails.albumid
     );
     if (savealbumid) {
-      toastMessage("Album Saved Successfully !");
+      toastMessage(t("MUSICPLAYERTOAST2"));
     }
   }
   };
