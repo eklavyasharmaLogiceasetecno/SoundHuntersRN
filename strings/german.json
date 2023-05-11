@@ -1,4 +1,5 @@
 {"translation":{"USERNAMEHINT" : "Erstelle einen Benutzernamen",
+
   "EMAILHINT" : "E-Mail-ID",
   "PASSWORDHINT" :"Passwort",
   "NEXT" : "Nächste",
@@ -94,12 +95,12 @@
 "HELPSCREEN3":"Wie steuere ich die Wiedergabe und stelle die Lautstärke ein?",
 "HELPSCREEN4":"Wie kann ich meinen Hörverlauf oder kürzlich gespielte Songs anzeigen?",
 "AUDIONAME":"Geben Sie den Namen von Audio ein",
-  "ENTERTAGS":"Geben Sie die Tags ein",
-  "ADDSOUNDDESCRIPTION":"Fügen Sie eine Beschreibung zum Sound hinzu",
-  "HOME":"Heim",
-  "TABSEARCH":"Suchen",
-  "RECORD":"Aufzeichnen",
-  "Library":"Bibliothek",
-  "PROFILE":"Profil"
+"ENTERTAGS":"Geben Sie die Tags ein",
+"ADDSOUNDDESCRIPTION":"Fügen Sie eine Beschreibung zum Sound hinzu",
+"HOME":"Heim",
+"TABSEARCH":"Suchen",
+"RECORD":"Aufzeichnen",
+"PROFILE":"Profil"
+
 }
 }

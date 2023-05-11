@@ -19,11 +19,13 @@ import UserIcon from "../assets/userIcon.svg";
 import UserIconC from "../assets/userIconColored.svg";
 import { getHeight } from "../libs/styleHelper";
 import { useTheme } from "../theme";
+import { useTranslation } from "react-i18next";
 
 const Tab = createBottomTabNavigator();
 
 const BottomTabNavigator = ({}): React.ReactElement => {
   const { colors } = useTheme();
+  const {t} =useTranslation();
   return (
 <Tab.Navigator
       initialRouteName="Home"
@@ -41,7 +43,7 @@ const BottomTabNavigator = ({}): React.ReactElement => {
          paddingTop:getHeight(10)
         },
         tabBarLabelStyle: {
-          width: "50%",
+          width: "100%",
           fontWeight:'700',
           paddingBottom:getHeight(2),
         },
@@ -51,8 +53,7 @@ const BottomTabNavigator = ({}): React.ReactElement => {
         name={NavigationRoutes.Home}
         component={Home}
         options={{
-          tabBarLabel: "Home",
-
+          tabBarLabel: t("HOME"),
           tabBarIcon: ({ focused, color }) =>
             focused ? (
               <HomeIconC height={28} width={28} />
@@ -66,7 +67,7 @@ const BottomTabNavigator = ({}): React.ReactElement => {
         name={NavigationRoutes.Search}
         component={Search}
         options={{
-          tabBarLabel: "Search",
+          tabBarLabel: t("SEARCH"),
           tabBarIcon: ({ focused }) =>
             focused ? (
               <SearchC height={28} width={28} />
@@ -80,7 +81,7 @@ const BottomTabNavigator = ({}): React.ReactElement => {
         name={NavigationRoutes.RecordAudio}
         component={RecordAudio}
         options={{
-          tabBarLabel: "Record",
+          tabBarLabel: t("RECORD"),
           tabBarIcon: ({ focused }) =>
             focused ? (
               <RecordIconC height={28} width={28} />
@@ -94,7 +95,7 @@ const BottomTabNavigator = ({}): React.ReactElement => {
         name={NavigationRoutes.MusicLibrary}
         component={MusicLibrary}
         options={{
-          tabBarLabel: "Library",
+          tabBarLabel: t("LIBRARY"),
           tabBarIcon: ({ focused }) =>
             focused ? (
               <LibraryIconC height={28} width={28} />
@@ -108,7 +109,7 @@ const BottomTabNavigator = ({}): React.ReactElement => {
         name={NavigationRoutes.UserProfile}
         component={UserProfile}
         options={{
-          tabBarLabel: "Profile",
+          tabBarLabel: t("PROFILE"),
           tabBarIcon: ({ focused }) =>
             focused ? (
               <UserIconC height={28} width={28} />
