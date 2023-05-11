@@ -14,12 +14,6 @@ import Button from "../components/Button";
 import { useNavigation } from "@react-navigation/native";
 import NavigationRoutes from "../navigation/constants/NavigationRoutes";
 import TextView from "../components/TextView";
-import {
-  NEXT,
-  PASSWORDDESCRIPTION,
-  PASSWORDHEADING,
-  PASSWORDSUBHEADING,
-} from "../strings/en";
 import fontFamilies from "../theme/fontfamilies";
 import { fontSize } from "../theme/fontSize";
 import { getHeight, getWidth } from "../libs/styleHelper";
@@ -29,11 +23,13 @@ import { signUp } from "../hooks/useAuth";
 import Loader from "../components/Loader";
 import BackButton from "../assets/backButton.svg";
 import BackButtonLight from "../assets/backButtonLight.svg";
+import { useTranslation } from "react-i18next";
 
 export default function CreatePassword(): React.ReactElement {
   const [password, setPassword] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const { colors, isDark } = useTheme();
+  const {t} =useTranslation();
   const navigation = useNavigation();
   const { userProfile, setUserProfile } = useUser();
   const [isLoading, setIsLoading] = useState(false);
@@ -97,7 +93,7 @@ export default function CreatePassword(): React.ReactElement {
             )}
           </TouchableOpacity>
           <TextView
-            text={"Create Account"}
+            text={t("CREATEACCOUNT")}
             style={styles.upperViewText}
             color={colors.primarytextcolor}
           />
@@ -130,7 +126,7 @@ export default function CreatePassword(): React.ReactElement {
         </View>
       </View>
       <View style={styles.passwordHeadingView}></View>
-      <Header title={PASSWORDHEADING} discription={PASSWORDSUBHEADING} />
+      <Header title={t("PASSWORDHEADING")} discription={t("PASSWORDSUBHEADING")} />
       <View style={styles.descriptionview}></View>
       <View>
         <InputBox
@@ -140,11 +136,11 @@ export default function CreatePassword(): React.ReactElement {
           returnType={"done"}
         />
         <Text style={styles.errorStyle}>{passwordError}</Text>
-        <TextView text={PASSWORDDESCRIPTION} style={styles.descriptionstyle} />
+        <TextView text={t("PASSWORDDESCRIPTION")} style={styles.descriptionstyle} />
       </View>
       <View style={styles.buttonView}>
         <Button
-          title={NEXT}
+          title={t("NEXT")}
           style={styles.button}
           onPress={onPressNextButton}
         />
