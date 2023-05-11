@@ -8,11 +8,11 @@ import TextView from "../components/TextView";
 import { fontSize } from "../theme/fontSize";
 import fontFamilies from "../theme/fontfamilies";
 import NavigationRoutes from "../navigation/constants/NavigationRoutes";
-import { HEADING1, HEADING2, HEADING3, ISSUE } from "../strings/en";
 import { useTheme } from "../theme";
 import GreaterIcon from "../assets/greaterIcon.svg";
 import HelpScreenData from "../components/HelpScreenData";
 import { useUser } from "../hooks/useUser";
+import { useTranslation } from "react-i18next";
 
 export default function HelpScreen() {
   const { colors, isDark } = useTheme();
@@ -24,23 +24,24 @@ export default function HelpScreen() {
   const onPressDetail = async () => {
     navigation.navigate(NavigationRoutes.HelpDescriptionScreen as never);
   };
+  const {t} =useTranslation();
   const data = [
     {
       id: "1",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fringilla cursus justo, aliquam tincidunt ?",
-      imageIcon: GreaterIcon,
+      text:t("HELPSCREEN"),
+   imageIcon:GreaterIcon
     },
     {
       id: "2",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fringilla cursus justo, aliquam tincidunt ?",
+      text:t("HELPSCREEN2"),
     },
     {
       id: "3",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fringilla cursus justo, aliquam tincidunt ?",
+      text:t("HELPSCREEN3"),
     },
     {
       id: "4",
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fringilla cursus justo, aliquam tincidunt ?",
+      text: t("HELPSCREEN4"),
     },
   ];
   return (
@@ -53,14 +54,19 @@ export default function HelpScreen() {
           {isDark !== true ? <ArrowIcon /> : <ArrowIconDark />}
         </TouchableOpacity>
         </View>
-        <TextView text={"Hey "+userProfile?.fullname+" ,"} style={styles.heading} />
+      { userProfile?.fullname ? (<TextView text={t("HEY")+userProfile?.fullname+" ,"} style={styles.heading} />)
+       :
+       (
+       <TextView text={t("HEY")+" ,"} style={styles.heading} />
+       )
+}
 
 
-        <TextView text={HEADING2} style={styles.heading} />
-        <TextView text={HEADING3} style={styles.heading} />
+        <TextView text={t("HEADING2")} style={styles.heading} />
+        <TextView text={t("HEADING3")} style={styles.heading} />
       
       <TextView
-        text={ISSUE}
+        text={t("ISSUE")}
         style={{ ...styles.subHeading }}
         color={colors.subheadingtextcolor}
       />

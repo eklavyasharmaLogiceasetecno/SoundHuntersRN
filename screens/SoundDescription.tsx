@@ -12,14 +12,7 @@ import {
   Platform,
 } from "react-native";
 import { useTheme } from "../theme";
-import {
-  SOUNDINFO,
-  UPLOAD,
-  UPLOADPICTURE,
-  TAGS,
-  ADDDESCRIPTION,
-  NAME,
-} from "../strings/en";
+
 import TextView from "../components/TextView";
 import fontFamilies from "../theme/fontfamilies";
 import NavigationRoutes from "../navigation/constants/NavigationRoutes";
@@ -45,9 +38,11 @@ import UploadIcon from "../assets/uploadIcon.svg"
 import SmallProfilePicUpdate from "../assets/smallProfilePicUpdate.svg";
 import { ScrollView } from "react-native-gesture-handler";
 import ConfettiCannon from 'react-native-confetti-cannon';
+import { useTranslation } from "react-i18next";
 function SoundDescription(): React.ReactElement {
   const route = useRoute();
   const { colors, isDark } = useTheme();
+  const {t} =useTranslation()
   const navigation = useNavigation();
   const { userProfile } = useUser();
   const { userLocation, saveUserAlbum } = useAlbums();
@@ -423,14 +418,14 @@ const [shoot, setShoot] = useState(false);
         style={{ opacity: isDisabled ? 0.5 : 1 }}
       >
         <TextView
-          text={UPLOAD}
+          text={t("UPLOAD")}
           style={{
             ...styles.uploadButtonStyle,
           }}
         />
       </TouchableOpacity>
     </View>
-    <TextView text={SOUNDINFO} style={styles.headerStyle} />
+    <TextView text={t("SOUNDINFO")} style={styles.headerStyle} />
     <View
       style={{
         ...styles.cardContainer1,
@@ -490,9 +485,9 @@ const [shoot, setShoot] = useState(false);
           <UploadIcon width={15} height={15}  style={styles.UploadIconStyle1}/>
         </View>
       </TouchableOpacity> */}
-      <TextView text={NAME} style={styles.headingStyle} />
+      <TextView text={t("NAME")} style={styles.headingStyle} />
       <TextInput
-        placeholder="Enter the name of Audio"
+        placeholder={t("AUDIONAME")}
         placeholderTextColor={colors.addplaceholdertextcolor}
         onChangeText={setAudioName}
         value={audioName}
@@ -502,9 +497,9 @@ const [shoot, setShoot] = useState(false);
         }}
         returnKeyType={"done"}
       />
-      <TextView text={TAGS} style={styles.headingStyle} />
+      <TextView text={t("TAGS")} style={styles.headingStyle} />
       <TextInput
-        placeholder="Enter the Tags"
+        placeholder={t("ENTERTAGS")}
         placeholderTextColor={colors.addplaceholdertextcolor}
         onChangeText={setTags}
         value={tags}
@@ -514,7 +509,7 @@ const [shoot, setShoot] = useState(false);
         }}
         returnKeyType={"done"}
       />
-      <TextView text={ADDDESCRIPTION} style={styles.headingStyle} />
+      <TextView text={t("ADDDESCRIPTION")} style={styles.headingStyle} />
       <View
         style={{
           ...styles.textAreaContainer1,
@@ -522,7 +517,7 @@ const [shoot, setShoot] = useState(false);
         }}
       >
         <TextInput
-          placeholder={"Add a description about the sound"}
+          placeholder={t("ADDSOUNDDESCRIPTION")}
           placeholderTextColor={colors.addplaceholdertextcolor}
           multiline={true}
           numberOfLines={10}

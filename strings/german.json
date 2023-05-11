@@ -1,4 +1,5 @@
 {"translation":{"USERNAMEHINT" : "Erstelle einen Benutzernamen",
+
   "EMAILHINT" : "E-Mail-ID",
   "PASSWORDHINT" :"Passwort",
   "NEXT" : "Nächste",
@@ -72,6 +73,9 @@
   "EFFECT" :"    Wirkung",
   "VOLUME" :"Volumen",
   "LOGIN" :"ANMELDUNG",
+  "HEY":"Hallo",
+  "MUSICPLAYERTOAST1":"Das Album ist bereits gespeichert !",
+  "MUSICPLAYERTOAST12":"Album erfolgreich gespeichert !",
   "NEEDLOGIN" : "Sie benötigen eine E-Mail und ein Passwort, um die Anwendung zu nutzen",
   "NOSEARCHRESULT" :"Entschuldigung, kein Ergebnis gefunden.",
   "PRIVACY":"SoundHunters hat die Music Player App als werbefinanzierte App entwickelt. Dieser SERVICE wird von SoundHunters kostenlos zur Verfügung gestellt und ist für die Nutzung ohne Mängelgewähr vorgesehen. Bezahlte Einkäufe können jedoch innerhalb der App getätigt werden.",
@@ -90,10 +94,14 @@
 "HELPSCREEN2":"Wie lade ich Musik zum Offline-Hören herunter?",
 "HELPSCREEN3":"Wie steuere ich die Wiedergabe und stelle die Lautstärke ein?",
 "HELPSCREEN4":"Wie kann ich meinen Hörverlauf oder kürzlich gespielte Songs anzeigen?",
-"CREATEACCOUNT":"Benutzerkonto erstellen"
+
+"AUDIONAME":"Geben Sie den Namen von Audio ein",
+"ENTERTAGS":"Geben Sie die Tags ein",
+"ADDSOUNDDESCRIPTION":"Fügen Sie eine Beschreibung zum Sound hinzu",
+"HOME":"Heim",
+"TABSEARCH":"Suchen",
+"RECORD":"Aufzeichnen",
+"PROFILE":"Profil"
+
 }
 }
-
-
-
-

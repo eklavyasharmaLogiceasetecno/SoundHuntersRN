@@ -7,7 +7,6 @@ import {
   StatusBar,
 } from "react-native";
 import TextView from "../components/TextView";
-import { ABOUT, HELP, PRIVACYPOLICY } from "../strings/en";
 import ArrowIcon from "../assets/arrowIcon.svg";
 import { getHeight, getWidth } from "../libs/styleHelper";
 import { fontSize } from "../theme/fontSize";
@@ -16,6 +15,7 @@ import { useTheme } from "../theme";
 import ArrowIconDark from "../assets/arrowIconDark.svg";
 import { useNavigation } from "@react-navigation/native";
 import NavigationRoutes from "../navigation/constants/NavigationRoutes";
+import { useTranslation } from "react-i18next";
 
 const data = [
   {
@@ -71,6 +71,7 @@ const data = [
 function HelpDescriptionScreen() {
   const { colors, isDark } = useTheme();
   const navigation = useNavigation();
+  const {t} =useTranslation()
 
   const onPressBackButton = async () => {
     navigation.navigate(NavigationRoutes.HelpScreen as never);
@@ -82,7 +83,7 @@ function HelpDescriptionScreen() {
         <TouchableOpacity onPress={onPressBackButton}>
           {isDark !== true ? <ArrowIcon /> : <ArrowIconDark />}
         </TouchableOpacity>
-        <TextView text={HELP} style={styles.heading} />
+        <TextView text={t("HELP")} style={styles.heading} />
       </View>
       <View style={{ backgroundColor: colors.cardComponentColor }}>
         <ScrollView showsVerticalScrollIndicator={false}>
