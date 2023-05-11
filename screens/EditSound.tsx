@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { TouchableOpacity, View, StyleSheet } from "react-native";
 import TextView from "../components/TextView";
-import { EDITSOUND, EFFECT, SAVE, VOLUME } from "../strings/en";
 import { useTheme } from "../theme";
 import ArrowIcon from "../assets/arrowIcon.svg";
 import ArrowIconDark from "../assets/arrowIconDark.svg";
@@ -25,6 +24,7 @@ import LottieView from "lottie-react-native";
 import { Audio } from "expo-av";
 import RecordSound from "../assets/recordSound.svg";
 import StopSound from "../assets/stopSound.svg";
+import { useTranslation } from "react-i18next";
 
 export default function EditSound() {
   const route = useRoute();
@@ -43,6 +43,7 @@ export default function EditSound() {
 
   const [isPressed, setIsPressed] = useState(false);
   const animationRef = React.useRef<LottieView>(null);
+  const {t}=useTranslation()
 
   useFocusEffect(() => {
     soundwavePause();
@@ -285,12 +286,12 @@ export default function EditSound() {
         </TouchableOpacity>
         <TouchableOpacity onPress={onPressSaveScreen}>
           <TextView
-            text={SAVE}
+            text={t("SAVE")}
             style={{ ...styles.buttonStyle, color: colors.commontextcolor }}
           />
         </TouchableOpacity>
       </View>
-      <TextView text={EDITSOUND} style={styles.heading} />
+      <TextView text={t("EDITSOUND")} style={styles.heading} />
       <View
         style={{
           ...styles.lottieViewStyle,
@@ -323,7 +324,7 @@ export default function EditSound() {
         }}
       >
         <View style={styles.sliderViewStyle}>
-          <TextView text={VOLUME} style={styles.seekbarTextStyle} />
+          <TextView text={t("VOLUME")} style={styles.seekbarTextStyle} />
           <Slider
             style={{ width: getWidth(300), height: getHeight(40) }}
             minimumValue={0}

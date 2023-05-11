@@ -15,17 +15,6 @@ import { getHeight, getWidth } from "../libs/styleHelper";
 import { useTheme } from "../theme";
 import NavigationRoutes from "../navigation/constants/NavigationRoutes";
 import { useNavigation } from "@react-navigation/native";
-import {
-  BIO,
-  BIODESCRIPTION,
-  CHANGEPROFILE,
-  DONE,
-  EDITPROFILE,
-  NAME,
-  PROFILENAME,
-  USERHEADING,
-  USERNAME,
-} from "../strings/en";
 import fontFamilies from "../theme/fontfamilies";
 import { fontSize } from "../theme/fontSize";
 import * as ImagePicker from "expo-image-picker";
@@ -36,10 +25,12 @@ import { useUser } from "../hooks/useUser";
 import Loader from "../components/Loader";
 import { generateRandomName } from "../libs/utils";
 import firebase from "firebase/compat";
+import { useTranslation } from "react-i18next";
 
 const EditProfileScreen = () => {
   const { colors, isDark } = useTheme();
   const navigation = useNavigation();
+  const {t}=useTranslation()
   const [isUploading, setUploading] = React.useState(false);
 
   const { userProfile, updateUserProfile, setUserProfile } = useUser();
@@ -216,12 +207,12 @@ else{
         </TouchableOpacity>
         <TouchableOpacity onPress={uploadImage}>
           <TextView
-            text={DONE}
+            text={t("DONE")}
             style={{ ...styles.buttonStyle, color: colors.commontextcolor }}
           />
         </TouchableOpacity>
       </View>
-      <TextView text={EDITPROFILE} style={styles.heading} />
+      <TextView text={t("EDITPROFILE")} style={styles.heading} />
       <View style={styles.profileImageView}>
         <View
           style={{
@@ -242,7 +233,7 @@ else{
             <UploadIcon width={20} height={20} />
           </TouchableOpacity>
         </View>
-        <TextView text={CHANGEPROFILE} style={styles.profileTextStyle} />
+        <TextView text={t("CHANGEPROFILE")} style={styles.profileTextStyle} />
       </View>
       <View
         style={{
@@ -251,7 +242,7 @@ else{
         }}
       >
         <TextView
-          text={NAME}
+          text={t("NAME")}
           style={{ ...styles.headingStyle, color: colors.primarytextcolor }}
         />
         {/* <TextView
@@ -260,7 +251,7 @@ else{
         /> */}
 
         <TextInput
-          placeholder={NAME}
+          placeholder={t("NAME")}
           style={{ ...styles.placeholderStyle, color: colors.primarytextcolor }}
           placeholderTextColor={"#B4B4B4"}
           multiline={true}
@@ -272,7 +263,7 @@ else{
         />
 
         <TextView
-          text={USERNAME}
+          text={t("USERNAME")}
           style={{ ...styles.headingStyle, color: colors.primarytextcolor }}
         />
         <TextView

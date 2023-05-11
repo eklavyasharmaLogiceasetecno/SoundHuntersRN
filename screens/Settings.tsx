@@ -8,7 +8,6 @@ import {
   StatusBar,
 } from "react-native";
 import TextView from "../components/TextView";
-import { ABOUT, HELP, LOGOUT, MODES, POLICY, SETTINGS } from "../strings/en";
 import { useTheme } from "../theme";
 import fontFamilies from "../theme/fontfamilies";
 import { fontSize } from "../theme/fontSize";
@@ -29,33 +28,9 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 import BackButton from "../assets/backButton.svg";
 import BackButtonLight from "../assets/backButtonLight.svg";
+import { useTranslation } from "react-i18next";
 
-const data = [
-  {
-    id: "1",
-    name: "About",
-    imageIcon: AboutIcon,
-    isSwitch: false,
-  },
-  {
-    id: "2",
-    name: "Privacy policy",
-    imageIcon: PolicyIcon,
-    isSwitch: false,
-  },
-  {
-    id: "3",
-    name: "Help",
-    imageIcon: HelpIcon,
-    isSwitch: false,
-  },
-  {
-    id: "4",
-    name: "Logout",
-    imageIcon: LogoutIcon,
-    isSwitch: false,
-  },
-];
+
 function Settings() {
   const [toggle, setToggle] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
@@ -64,6 +39,33 @@ function Settings() {
   const navigation = useNavigation();
 
   const { isOnboardingCompleted, setIsOnboardingCompleted } = useUser();
+  const {t}=useTranslation()
+  const data = [
+    {
+      id: "1",
+      name:t("ABOUT"),
+      imageIcon: AboutIcon,
+      isSwitch: false,
+    },
+    {
+      id: "2",
+      name: t("PRIVACYPOLICY"),
+      imageIcon: PolicyIcon,
+      isSwitch: false,
+    },
+    {
+      id: "3",
+      name: t("HELP"),
+      imageIcon: HelpIcon,
+      isSwitch: false,
+    },
+    {
+      id: "4",
+      name:t( "LOGOUT"),
+      imageIcon: LogoutIcon,
+      isSwitch: false,
+    },
+  ];
 
   useFocusEffect(() => {
     async function fetchDarkModeState() {
@@ -123,7 +125,7 @@ function Settings() {
           )}
         </TouchableOpacity>
         </View>
-        <TextView text={SETTINGS} style={styles.heading} />
+        <TextView text={t("SETTINGS")} style={styles.heading} />
      
 
       <View
@@ -146,7 +148,7 @@ function Settings() {
         <View style={styles.modesContainer}>
           <View style={styles.modesStyle}>
             <ModeIcon />
-            <TextView text={MODES} style={styles.modesTextView} />
+            <TextView text={t("MODES")} style={styles.modesTextView} />
           </View>
           <Switch
             trackColor={{ false: "gray", true: "teal" }}
