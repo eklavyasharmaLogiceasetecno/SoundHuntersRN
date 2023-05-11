@@ -11,7 +11,6 @@ import {
 } from "react-native";
 import { useTheme } from "../theme";
 import Button from "../components/Button";
-import { DONE, PROFILEPICTURE, PROFILERANDOMTEXT, SELECT } from "../strings/en";
 import { useNavigation } from "@react-navigation/native";
 import NavigationRoutes from "../navigation/constants/NavigationRoutes";
 import TextView from "../components/TextView";
@@ -28,12 +27,14 @@ import Loader from "../components/Loader";
 import fontFamilies from "../theme/fontfamilies";
 import BackButton from "../assets/backButton.svg";
 import BackButtonLight from "../assets/backButtonLight.svg";
+import { useTranslation } from "react-i18next";
 
 export default function UploadProfilePicture(): React.ReactElement {
   const [image, setImage] = useState<any>(null);
   const [uploading, setUploading] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { colors, isDark } = useTheme();
+  const {t}=useTranslation();
   const navigation = useNavigation();
   const {
     saveUserProfile,
@@ -237,7 +238,7 @@ export default function UploadProfilePicture(): React.ReactElement {
             )}
           </TouchableOpacity>
           <TextView
-            text={"Create Account"}
+            text={t("CREATEACCOUNT")}
             style={styles.upperViewText}
             color={colors.primarytextcolor}
           />
@@ -267,8 +268,8 @@ export default function UploadProfilePicture(): React.ReactElement {
         </View>
       </View>
       <View style={{ ...styles.headingView }}>
-        <TextView text={SELECT} style={styles.heading} />
-        <TextView text={PROFILEPICTURE} style={styles.heading} />
+        <TextView text={t("SELECT")} style={styles.heading} />
+        <TextView text={t("PROFILEPICTURE")} style={styles.heading} />
       </View>
       <View
         style={{
@@ -284,7 +285,7 @@ export default function UploadProfilePicture(): React.ReactElement {
           )}
         </TouchableOpacity>
       </View>
-      <TextView text={PROFILERANDOMTEXT} style={styles.text} />
+      <TextView text={t("PROFILERANDOMTEXT")} style={styles.text} />
       <View
         style={{
           height: "25%",
@@ -294,7 +295,7 @@ export default function UploadProfilePicture(): React.ReactElement {
         }}
       >
         <Button
-          title={DONE}
+          title={t("DONE")}
           style={styles.button}
           onPress={onPressNextButton}
         />
