@@ -10,13 +10,6 @@ import {
 import TextView from "../components/TextView";
 import NavigationRoutes from "../navigation/constants/NavigationRoutes";
 import { useNavigation } from "@react-navigation/native";
-import {
-  CHOOSELANGUAGE,
-  ENGLISH,
-  GERMAN,
-  NEXT,
-  SELECTLANGUAGE,
-} from "../strings/en";
 import Button from "../components/Button";
 import { useTheme } from "../theme";
 import { fontSize } from "../theme/fontSize";
@@ -121,7 +114,7 @@ console.log("language",language,i18n.language)
         </View>
       </View>
       <View style={styles.languageHeadingView}></View>
-      <Header title={SELECTLANGUAGE} discription={CHOOSELANGUAGE} />
+      <Header title={t("SELECTLANGUAGE")} discription={t("CHOOSELANGUAGE")} />
 
       <View style={styles.languageContent}></View>
       <View>
@@ -134,7 +127,7 @@ console.log("language",language,i18n.language)
                 : colors.inputBoxBackground,
             }}
           >
-            <TextView text={ENGLISH} style={styles.languageTextStyle} />
+            <TextView text={t("ENGLISH")} style={styles.languageTextStyle} />
             <Image
               source={require("../assets/flaguk.png")}
               style={styles.flagUkImageStyle}
@@ -150,7 +143,7 @@ console.log("language",language,i18n.language)
                 : colors.inputBoxBackground,
             }}
           >
-            <TextView text={GERMAN} style={styles.languageTextStyle} />
+            <TextView text={t("GERMAN")} style={styles.languageTextStyle} />
             <Image
               source={require("../assets/flaggermany.png")}
               style={styles.flagImageStyle}
@@ -160,7 +153,7 @@ console.log("language",language,i18n.language)
       </View>
       <View style={styles.buttonView}>
         <Button
-          title={NEXT}
+          title={t("NEXT")}
           style={styles.button}
           onPress={onPressNextButton}
         />
